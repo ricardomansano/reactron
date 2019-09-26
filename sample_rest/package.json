@@ -1,0 +1,14 @@
+{
+  "name": "sample_rest",
+  "version": "1.0.0",
+  "description": "simple rest for test on Reactron",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mansano",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
