@@ -19,7 +19,7 @@ export default class Rest extends React.Component{
             host: 'localhost',
             port: 3333,
             path: '/url?name=MANSANO%20S/A&year=2019',
-            methos: 'GET'
+            method: 'GET'
         }
 
         const req = http.request(options, (res) => {
