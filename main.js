@@ -1,10 +1,8 @@
-import electron from 'electron';
-import path from 'path';
-import url from 'url';
+const { app, BrowserWindow } = require('electron')
+const url = require('url')
+const path = require('path')
 
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
-let mainWindow;
+let mainWindow
 
 // *Funcoes devem ser exportadas pra serem acessiveis ao front-end
 // Executa comando do SO e retorna resultado ao front-end
@@ -15,10 +13,10 @@ exports.execProcess = (process, callback) => {
   const { exec } = require('child_process');
   const callExec = exec(process)
 
-  callExec.stdout.on('data', function(data){
+  callExec.stdout.on('data', function (data) {
     callback(data)
   })
-  callExec.stderr.on('data', function(data){
+  callExec.stderr.on('data', function (data) {
     callback("<b>ERROR:</b> \n" + data)
   })
 }
@@ -27,7 +25,7 @@ const createWindow = () => {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    
+
     // Caracteristicas visuais da janela
     // autoHideMenuBar: true,
     // titleBarStyle: 'customButtonsOnHover',
@@ -46,12 +44,15 @@ const createWindow = () => {
     slashes: true
   }));
 
+  //mainWindow.loadFile(__dirname + 'index.html')
+
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
 };
 
-app.on('ready', createWindow);
+app.whenReady()
+  .then(createWindow)
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
@@ -60,7 +61,7 @@ app.on('window-all-closed', () => {
 });
 
 app.on('activate', () => {
-  if (mainWindow === null) {
-    createWindow();
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow()
   }
-});
+})

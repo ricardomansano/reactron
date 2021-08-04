@@ -42,7 +42,7 @@ gulp.task('build', gulp.series('copy', 'html', 'css', 'js'));
 
 gulp.task('start', gulp.series('build', () => {
     return exec(
-        __dirname+'/node_modules/.bin/electron .'
+        __dirname + '/node_modules/.bin/electron .'
     ).on('close', () => process.exit());
     /*
     return spawn(

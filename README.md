@@ -71,6 +71,21 @@ Ele então empacota o aplicativo utilizando o `gulp` através do `npm`.
   <img src="https://github.com/ricardomansano/reactron/blob/master/images/screen4.png" alt="electron_sequence" border="0">
 </p>
 
+
+## Para Usuários Windows 
+
+Há um bug de segurança em pastas com espaços, para executar o projeto, basta mover para uma pasta com nome sem espaços 
+
+EX: 
+
+c://xampp/reactron
+
+
+Desta maneira o projeto será executado sem erros
+
+
+
+
 ## Licença
 
 Esse projeto está sob a licença [MIT](https://www.opensource.org/licenses/mit-license.php)

@@ -9,7 +9,7 @@ import AppMenu from './app-menu';
 
 // Captura janela principal do Electron
 const { remote } = require('electron')
-var window = remote.getCurrentWindow()
+let window = remote.getCurrentWindow()
 
 export default class AppBar extends React.Component{
     constructor(props){
@@ -41,11 +41,6 @@ export default class AppBar extends React.Component{
     }
     
     render(){
-        const {
-            open,
-            anchorEl = null,
-        } = this.state;
-      
         // Styles
         const appBarStyle = {
             WebkitAppRegion: "drag",
@@ -72,8 +67,9 @@ export default class AppBar extends React.Component{
         }
 
         return ( 
-            <div style={ appBarStyle }>                
-                <AppMenu mainApp={this.state.mainApp}/>
+            <div style={ appBarStyle }>  
+
+                <AppMenu mainApp={this.state.mainApp}/>              
                 <h1 style={ appH1 }>Reactron</h1>
 
                 <IconButton color="inherit" size="small" style={ appButton  }

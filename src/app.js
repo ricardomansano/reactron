@@ -20,6 +20,7 @@ export default class App extends React.Component {
     }
 
     render() {
+        //console.logI('hear')
         return (
             <div>
                 <Dialog fullScreen={Boolean("true")} open={Boolean("true")}>
