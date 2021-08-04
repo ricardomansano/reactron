@@ -36,7 +36,6 @@ const createWindow = () => {
       nodeIntegration: true
     }
   });
-  //mainWindow.removeMenu();
 
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
@@ -44,7 +43,6 @@ const createWindow = () => {
     slashes: true
   }));
 
-  //mainWindow.loadFile(__dirname + 'index.html')
 
   mainWindow.on('closed', () => {
     mainWindow = null;
