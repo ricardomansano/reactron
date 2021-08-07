@@ -2,7 +2,7 @@
   "name": "reactron",
   "displayName": "Projeto base para uma aplicacao React/Electron/Material",
   "description": "Projeto base para uma aplicacao React/Electron/Material",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "repository": "https://github.com/ricardomansano/reactron",
   "publisher": "Mansano",

@@ -1,4 +1,3 @@
-//const spawn = require('child_process').spawn;
 const exec = require('child_process').exec;
 
 const gulp = require('gulp');
@@ -26,44 +25,30 @@ gulp.task('css', () => {
 
 gulp.task('js', () => {
     return gulp.src(['main.js', 'src/**/*.js'])
-         .pipe(babel())
-         .pipe(gulp.dest('app/'))
-         .pipe(livereload());
+        .pipe(babel())
+        .pipe(gulp.dest('app/'))
+        .pipe(livereload());
 });
 
-gulp.task('watch', async function() {
-  livereload.listen();
-  gulp.watch('src/**/*.html', gulp.series('html'));
-  gulp.watch('src/**/*.css', gulp.series('css'));
-  gulp.watch('src/**/*.js', gulp.series('js'));
+gulp.task('watch', async function () {
+    livereload.listen();
+    gulp.watch('src/**/*.html', gulp.series('html'));
+    gulp.watch('src/**/*.css', gulp.series('css'));
+    gulp.watch('src/**/*.js', gulp.series('js'));
 });
 
 gulp.task('build', gulp.series('copy', 'html', 'css', 'js'));
 
 gulp.task('start', gulp.series('build', () => {
     return exec(
-        __dirname+'/node_modules/.bin/electron .'
+        __dirname + '/node_modules/.bin/electron .'
     ).on('close', () => process.exit());
-    /*
-    return spawn(
-        'node_modules/.bin/electron',
-        ['.'],
-        { stdio: 'inherit' }
-    ).on('close', () => process.exit());
-    */
 }));
 
 gulp.task('default', gulp.parallel('start', 'watch'));
 
 gulp.task('dist', gulp.series('build', () => {
     return exec(
-        __dirname+'/node_modules/.bin/electron-builder .'
+        __dirname + '/node_modules/.bin/electron-builder .'
     ).on('close', () => process.exit());
-    /*
-    return spawn(
-        'node_modules/.bin/electron-builder',
-        ['.'],
-        { stdio: 'inherit' }
-    ).on('close', () => process.exit());
-    */
 }));

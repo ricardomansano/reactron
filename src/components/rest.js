@@ -1,10 +1,10 @@
 import React from 'react';
 var http = require('http')
 
-export default class Rest extends React.Component{
-    constructor(props){
+export default class Rest extends React.Component {
+    constructor(props) {
         super(props)
-        
+
         this.state = {
             return_rest: "",
             status: "",
@@ -23,35 +23,35 @@ export default class Rest extends React.Component{
         }
 
         const req = http.request(options, (res) => {
-            this.setState({status: res.statusCode})
-            this.setState({headers: JSON.stringify(res.headers)})
-            
+            this.setState({ status: res.statusCode })
+            this.setState({ headers: JSON.stringify(res.headers) })
+
             res.setEncoding('utf8');
             res.on('data', (chunk) => {
-                this.setState({return_rest: chunk})
+                this.setState({ return_rest: chunk })
             });
         }).end();
-        
+
         req.on('error', (e) => {
-            this.setState({return_rest: e.message})
-        });        
+            this.setState({ return_rest: e.message })
+        });
     }
 
-    render(){
-        return ( 
+    render() {
+        return (
             <div>
-            <p align="right"><b>source:</b> rest.js </p>
-            <h2>Consumindo Rest</h2>
-            <p>Na pasta sample_rest tem um programa simples de Rest server</p>
-            <p>Inicie com o comando: <b>node index.js</b></p>
+                <p align="right"><b>source:</b> rest.js </p>
+                <h2>Consuming Rest</h2>
+                <p>In the sample_rest folder there is a simple Rest server program</p>
+                <p>Start with the command: <b>node index.js</b></p>
 
-            <p><b>Retorno do REST serão os parâmetros de envio:</b></p>
-            <ul>
-                <li><b>Retorno</b>: {this.state.return_rest}</li>
-                <li><b>Status</b>: {this.state.status}</li>
-                <li><b>Headers</b>: {this.state.headers}</li>
-            </ul>
+                <p><b>Return from REST will be the sending parameters:</b></p>
+                <ul>
+                    <li><b>Return</b>: {this.state.return_rest}</li>
+                    <li><b>Status</b>: {this.state.status}</li>
+                    <li><b>Headers</b>: {this.state.headers}</li>
+                </ul>
             </div>
         )
     }
- }
+}

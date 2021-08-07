@@ -24,7 +24,7 @@ export default function AppMenu(props) {
     setAnchorEl(null);
   }
 
-  function handleClickOpt(page){
+  function handleClickOpt(page) {
     props.mainApp.routePage(page)
     handleClose()
   }
@@ -35,12 +35,12 @@ export default function AppMenu(props) {
 
   return (
     <div>
-      <Tooltip title="Menu principal">
-          <IconButton color="inherit" size="small" style={ appButton  }
-              onClick={handleClick}
-              >
-              <MenuButton width="28"/>
-          </IconButton>
+      <Tooltip title="Main menu">
+        <IconButton color="inherit" size="small" style={appButton}
+          onClick={handleClick}
+        >
+          <MenuButton width="28" />
+        </IconButton>
       </Tooltip>
 
       <Menu
@@ -50,13 +50,13 @@ export default function AppMenu(props) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={() => {handleClickOpt(Welcome)}}>Bem-vindo</MenuItem>
-        <MenuItem onClick={() => {handleClickOpt(BasicForm)}}>Formulario</MenuItem>
-        <MenuItem onClick={() => {handleClickOpt(Command)}}>Executa Comando</MenuItem>
-        <MenuItem onClick={() => {handleClickOpt(Rest)}}>Consome Rest</MenuItem>
-        <MenuItem onClick={() => {handleClickOpt(FS_Inifile)}}>Sistema de Arquivos / Ini File</MenuItem>
-        <Divider/>
-        <MenuItem onClick={() => {handleClickOpt(AppAbout)}}>Sobre...</MenuItem>
+        <MenuItem onClick={() => { handleClickOpt(Welcome) }}>Welcome</MenuItem>
+        <MenuItem onClick={() => { handleClickOpt(BasicForm) }}>Form</MenuItem>
+        <MenuItem onClick={() => { handleClickOpt(Command) }}>Execute Command</MenuItem>
+        <MenuItem onClick={() => { handleClickOpt(Rest) }}>Consume Rest </MenuItem>
+        <MenuItem onClick={() => { handleClickOpt(FS_Inifile) }}>File System / Ini File </MenuItem>
+        <Divider />
+        <MenuItem onClick={() => { handleClickOpt(AppAbout) }}>About...</MenuItem>
       </Menu>
     </div>
   );

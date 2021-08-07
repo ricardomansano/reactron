@@ -7,45 +7,40 @@ import FilterNone from '@material-ui/icons/FilterNone';
 
 import AppMenu from './app-menu';
 
-// Captura janela principal do Electron
+// Capture Electron Main Window 
 const { remote } = require('electron')
 var window = remote.getCurrentWindow()
 
-export default class AppBar extends React.Component{
-    constructor(props){
+export default class AppBar extends React.Component {
+    constructor(props) {
         super(props)
 
         this.state = {
-            maximizeIcon: <CropSquare/>,
+            maximizeIcon: <CropSquare />,
             mainApp: props.mainApp
         }
     }
 
-    // Evento de click no botao [Maximize]
+    // Click event on the [Maximize] button 
     maximizeButton = () => {
-        if ( window.isMaximized() )
+        if (window.isMaximized())
             window.restore()
         else
             window.maximize()
     }
 
     componentDidMount = () => {
-        // Evento de resize da janela principal
-        // Controlo aqui a troca do icone [Maximize]
+        // Main window resize event
+        // I control here the change of the [Maximize] icon
         window.addListener("resize", () => {
-            if ( window.isMaximized() )
-                this.setState({ maximizeIcon: <FilterNone/> })
+            if (window.isMaximized())
+                this.setState({ maximizeIcon: <FilterNone /> })
             else
-                this.setState({ maximizeIcon: <CropSquare/> })
+                this.setState({ maximizeIcon: <CropSquare /> })
         })
     }
-    
-    render(){
-        const {
-            open,
-            anchorEl = null,
-        } = this.state;
-      
+
+    render() {
         // Styles
         const appBarStyle = {
             WebkitAppRegion: "drag",
@@ -71,24 +66,24 @@ export default class AppBar extends React.Component{
             fontSize: 20
         }
 
-        return ( 
-            <div style={ appBarStyle }>                
-                <AppMenu mainApp={this.state.mainApp}/>
-                <h1 style={ appH1 }>Reactron</h1>
+        return (
+            <div style={appBarStyle}>
+                <AppMenu mainApp={this.state.mainApp} />
+                <h1 style={appH1}>Reactron</h1>
 
-                <IconButton color="inherit" size="small" style={ appButton  }
-                    onClick={() => { window.minimize() } }>
+                <IconButton color="inherit" size="small" style={appButton}
+                    onClick={() => { window.minimize() }}>
                     <Minimize />
                 </IconButton>
-                <IconButton color="inherit" size="small" style={ appButton }
-                    onClick={() => { this.maximizeButton() } }>
-                    { this.state.maximizeIcon }
+                <IconButton color="inherit" size="small" style={appButton}
+                    onClick={() => { this.maximizeButton() }}>
+                    {this.state.maximizeIcon}
                 </IconButton>
-                <IconButton color="inherit" size="small" style={ appButton }
-                    onClick={() => { window.close() } }>
+                <IconButton color="inherit" size="small" style={appButton}
+                    onClick={() => { window.close() }}>
                     <Close />
                 </IconButton>
-            </div> 
+            </div>
         )
     }
 }

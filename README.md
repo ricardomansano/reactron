@@ -1,62 +1,61 @@
 # Reactron
 
-Reactron é um projeto simples que integra o [React.js](https://reactjs.org/), o [Electron](https://electronjs.org/) e o [Material Design](https://material-ui.com/pt/) como interface.
+Reactron is a simple project that integrates [React.js](https://reactjs.org/), [Electron](https://electronjs.org/) and [Material Design](https://material-ui.com/pt/) as interface.
 
-## Features do projeto
+## Project Features
 
-+ Roteamento
-+ Execução de comandos do SO com retorno das informações (stdout)
-+ Construção de componentes customizados
-+ Menus, Dialogs e outros componentes do Material UI
-+ Consumo de Rest
-+ Formulário básico
-+ IO em disco (arquivos INI)
++ Routing
++ Execution of OS commands with return of information (stdout)
++ Construction of custom components
++ Menus, Dialogs and other Material UI components
++ Rest consume
++ Basic form
++ IO on disk (INI files)
 
-## Instalando
+## Installing
 
-Você precisará do [NPM](https://nodejs.org/en/) instalado.
-Siga os comandos abaixo:
+You will need [NPM](https://nodejs.org/en/) installed.
+Follow the commands below:
 
 ```bash
-# Clone o repositório
+# Clone repository
 git clone https://github.com/ricardomansano/reactron.git reactron
 
-# Acesse o diretório
+#  Go to directory
 cd reactron
 
-# Instale as dependencias
+# Install dependencies
 npm install
 ```
 
-## Execute o projeto à partir do comando
+## Run the project from the command
 
 ```bash
 npm start
-[ou]
+[or]
 npm run start
 ```
 
-## Compilando para distribuição
+## Compiling for distribution
 
 ```bash
 npm run dist
 ```
 
-O aplicativo será gerado na pasta `dist` de seu projeto.
+The application will be generated in the `dist` folder of your project.
 
+## How Reactron works with React
 
-## Como o Reactron trabalha com o React
+The template compiles the `*.js` (jsx) files contained in the `src` folder into standard JavaScript files into the `app` folder, including also the `*.html` and `*.css` files, along with the `file main.js`.
 
-O template compila os arquivos `*.js` (jsx) contidos na pasta `src` para arquivos JavaScript padrão para pasta `app`, incluindo também os arquivos `*.html` e `*.css`, juntamente com o arquivo `main.js` (inicializador do Electron). 
-
-Ele então empacota o aplicativo utilizando o `gulp` através do `npm`.
+It then packages the application using `gulp` through `npm`.
 
 
 <p align="center"> 
   <img src="https://github.com/ricardomansano/reactron/blob/master/images/electron_sequence.png" alt="electron_sequence" border="0">
 </p>
 
-## Telas
+## Screenshot
 
 <p align="center"> 
   <img src="https://github.com/ricardomansano/reactron/blob/master/images/screen1.png" alt="electron_sequence" border="0">
@@ -71,8 +70,13 @@ Ele então empacota o aplicativo utilizando o `gulp` através do `npm`.
   <img src="https://github.com/ricardomansano/reactron/blob/master/images/screen4.png" alt="electron_sequence" border="0">
 </p>
 
-## Licença
+## Important tip
+Do not use **folders with spaces** in the name.
 
-Esse projeto está sob a licença [MIT](https://www.opensource.org/licenses/mit-license.php)
+EX: c://dir/reactron
 
-Baseado no projeto [Electrate](https://github.com/mmick66/electrate) (sob licença: [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/deed.pt_BR))
+## License
+
+This project is under the license [MIT](https://www.opensource.org/licenses/mit-license.php)
+
+Based on the project [Electrate](https://github.com/mmick66/electrate) (under license: [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/deed.pt_BR))
