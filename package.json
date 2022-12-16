@@ -31,7 +31,7 @@
     "gulp-clean-css": "^4.2.0",
     "gulp-concat": "^2.6.1",
     "gulp-livereload": "^4.0.1",
-    "jest": "^25.3.0",
+    "jest": "^29.3.1",
     "react-test-renderer": "^16.8.6"
   },
   "dependencies": {
